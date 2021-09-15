@@ -36,7 +36,7 @@ header {
     text-decoration: underline;
   }
   .top-bar-content-container>*:not(:last-child){
-    padding-inline-end: 5px;
+    padding-inline-end: 0.5rem;
     // margin-inline-end: 5px;
     border-inline-end: 1px #9b9b9b solid ;
   }
