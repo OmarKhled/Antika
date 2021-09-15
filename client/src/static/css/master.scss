@@ -28,5 +28,5 @@ button {
   border: none;
 }
 .gap-auto>*:not(:last-child) {
-  margin-inline-end: 0.5rem;
+  margin-inline-end: 0.5rem !important;
 }

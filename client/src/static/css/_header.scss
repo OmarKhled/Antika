@@ -12,7 +12,12 @@ header {
   top: 0;
   right: 0;
   left: 0;
-  
+  transition: ease 0.4s;
+  color: #333;
+
+}
+.squeez {
+  margin-top: -35px;
 }
 
 // Top Bar
@@ -34,6 +39,9 @@ header {
     padding-inline-end: 5px;
     // margin-inline-end: 5px;
     border-inline-end: 1px #9b9b9b solid ;
+  }
+  @media (max-width: 575px) {
+    display: none;
   }
 }
 // Main Bar
@@ -80,8 +88,9 @@ header {
       .search-bar {
         width: 100%;
         border: var(--orange) solid 1px;
-        border-start-start-radius: 2px;
-        border-end-start-radius: 2px;
+        border-radius: 0 !important;
+        border-start-start-radius: 2px !important;
+        border-end-start-radius: 2px !important;
         padding: 0.3rem 0.5rem;
         position: relative;
       }
@@ -91,12 +100,12 @@ header {
         color: #fff;
       }
   }
-  .cart {
-    color: #333;
-  }
   .links>*:not(:last-child){
     padding-inline-end: 5px;
     margin-inline-end: 5px;
     border-inline-end: 1px #9b9b9b solid ;
+  }
+  .links .icon {
+    color: var(--orange);
   }
 }

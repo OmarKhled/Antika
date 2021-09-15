@@ -10,7 +10,7 @@ const MainNav = () => {
     <nav className="nav-container">
       <div className="logo-container">
         <a href="/">
-          <img alt={t("logo.alt")} src={t("logo.src")} />
+          <img id="nav-logo" alt={t("logo.alt")} src={t("logo.src")} />
         </a>
       </div>
       <div className="search-bar-container">
@@ -22,14 +22,14 @@ const MainNav = () => {
         </div>
       </div>
       <div className="d-flex align-items-center gap-auto links">
-        <div className="d-flex align-items-center gap-auto cart">
-          <FaUser />
+        <div className="d-flex align-items-center gap-auto">
+          <FaUser className="icon" />
           <BrowserView>
             <span>{t("login")}</span>
           </BrowserView>
         </div>
-        <div className="d-flex align-items-center gap-auto cart">
-          <FaShoppingCart />
+        <div className="d-flex align-items-center gap-auto">
+          <FaShoppingCart className="icon" />
           <BrowserView>
             <span>{t("cart")}</span>
           </BrowserView>

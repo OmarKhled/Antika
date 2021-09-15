@@ -1,8 +1,9 @@
 {
-  "logo": { "src": "/static/images/logo-rtl.png", "alt": "أنتيكه" },
+  "logo": { "src": "/static/images/logo-rtl.svg", "alt": "أنتيكه" },
   "search": "أبحث عن المنتجات",
   "fastShipping": "شحن سريع",
   "saudi": "المملكة العربية السعودية",
   "cart": "العربة",
-  "login": "تسجيل الدخول"
+  "login": "تسجيل الدخول",
+  "test": "تجربة"
 }
