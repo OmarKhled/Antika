@@ -1,0 +1,78 @@
+:root {
+  --orange: #FB8500;
+  --honey: #FFB703;
+  --blue: #0e215e;
+  --cyan: #3eacb1;
+  --ocean: #8ECAE6;
+}
+
+// Top Bar
+.top-bar {
+  background: #333;
+  border-bottom: #8f8f8f 1px solid;
+  color: #fff;
+  padding: 0.4rem;
+  font-size: 0.8rem;
+  .lang-btn {
+    background: none;
+    border: none;
+    color: #fff;
+  }
+  .lang-btn:hover, .lang-btn:active {
+    text-decoration: underline;
+  }
+}
+// Main Bar
+.nav-container {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  padding: 1rem;
+  background: #fdf2dc;
+  border-bottom: var(--honey) 2px solid;
+  display: grid;
+  grid-template-columns: auto 6fr auto;
+  gap: 1rem;
+
+  .logo-container {
+    height: 100%;
+    height: 100%;
+  }
+  .logo-container img {
+    height: 100%;
+  }
+  .search-bar-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-inline-end: #b9b9b9 2px solid;
+    padding: 0 0.6rem;
+      .inside-container {
+        position: relative;
+        width: 80%;
+        @media(max-width: 845px) {
+          width: 100%;
+        }
+        box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.156);
+        margin: auto;
+        display: flex;
+        align-items: center;
+        height: fit-content;
+      }
+      .search-bar {
+        width: 100%;
+        border: var(--orange) solid 1px;
+        padding: 0.3rem 0.5rem;
+        border-start-start-radius: 2px;
+        border-end-start-radius: 2px;
+      }
+      .search-icon {
+        background: var(--orange);
+        padding: 0.367rem 0.9rem;
+        color: #fff;
+        border-radius: 0;
+        border-start-end-radius: 2px;
+        border-end-end-radius: 2px;
+      }
+  }
+}

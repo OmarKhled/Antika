@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600&display=swap');
+@import './header';
+
+@font-face {
+  font-family: "Frugiter";
+  src: url("../fonts/frutiger-arabic.ttf") format("truetype");
+}
+
+// Utitlities
+body, html {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+* {
+  font-family: 'Poppins', 'Frugiter', sans-serif !important;
+  box-sizing: border-box;
+}
+textarea:focus, input:focus, textarea:active, input:active{
+  outline: none;
+}
+button {
+  background: none;
+  border: none;
+}
