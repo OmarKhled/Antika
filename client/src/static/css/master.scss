@@ -27,3 +27,6 @@ button {
   background: none;
   border: none;
 }
+.gap-auto>*:not(:last-child) {
+  margin-inline-end: 0.5rem;
+}

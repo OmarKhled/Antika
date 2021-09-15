@@ -7,6 +7,7 @@ const Header = () => {
   // eslint-disable-next-line
   const { i18n } = useTranslation();
   document.body.dir = i18n.dir();
+  document.body.style.direction = i18n.dir();
   return (
     <header>
       <TopBar />

@@ -14,14 +14,14 @@ const TopBar = () => {
     <div className="top-bar">
       <div className="d-flex justify-content-between">
         <div className="top-bar-content-container">
-          <div className="d-flex align-items-center gap-1">
+          <div className="d-flex align-items-center gap-auto">
             <FaShippingFast />
-            {t("fastShipping")}
+            <span>{t("fastShipping")}</span>
           </div>
         </div>
-        <div className="d-flex align-items-center gap-1 top-bar-content-container">
-          <div className="d-flex align-items-center gap-1">
-            {t("saudi")}
+        <div className="d-flex align-items-center top-bar-content-container">
+          <div className="d-flex align-items-center gap-auto">
+            <span>{t("saudi")}</span>
             <span className="flag-icon flag-icon-sa"></span>
           </div>
           <button className="lang-btn" onClick={handleLanguageSwitch}>
