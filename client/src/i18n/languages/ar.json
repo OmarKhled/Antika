@@ -2,5 +2,7 @@
   "logo": { "src": "/static/images/logo-rtl.png", "alt": "أنتيكه" },
   "search": "أبحث عن المنتجات",
   "fastShipping": "شحن سريع",
-  "home": "البيت"
+  "saudi": "المملكة العربية السعودية",
+  "cart": "العربة",
+  "login": "تسجيل الدخول"
 }

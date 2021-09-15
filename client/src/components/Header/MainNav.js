@@ -1,5 +1,5 @@
 import React from "react";
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaShoppingCart, FaUser } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 
 const MainNav = () => {
@@ -25,7 +25,16 @@ const MainNav = () => {
             </button>
           </div>
         </div>
-        <div>cart</div>
+        <div className="d-flex align-items-center gap-2 links">
+          <div className="d-flex align-items-center gap-1 cart">
+            <FaUser />
+            <span>{t("login")}</span>
+          </div>
+          <div className="d-flex align-items-center gap-1 cart">
+            <FaShoppingCart />
+            <span>{t("cart")}</span>
+          </div>
+        </div>
       </nav>
     </div>
   );

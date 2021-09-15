@@ -6,6 +6,15 @@
   --ocean: #8ECAE6;
 }
 
+// Global
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  
+}
+
 // Top Bar
 .top-bar {
   background: #333;
@@ -20,6 +29,10 @@
   }
   .lang-btn:hover, .lang-btn:active {
     text-decoration: underline;
+  }
+  .top-bar-content-container>*:not(:last-child){
+    padding-inline-end: 5px;
+    border-inline-end: 1px #9b9b9b solid ;
   }
 }
 // Main Bar
@@ -45,7 +58,6 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    border-inline-end: #b9b9b9 2px solid;
     padding: 0 0.6rem;
       .inside-container {
         position: relative;
@@ -74,5 +86,12 @@
         border-start-end-radius: 2px;
         border-end-end-radius: 2px;
       }
+  }
+  .cart {
+    color: #333;
+  }
+  .links>*:not(:last-child){
+    padding-inline-end: 5px;
+    border-inline-end: 1px #9b9b9b solid ;
   }
 }

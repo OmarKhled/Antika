@@ -6,9 +6,11 @@ const App = () => {
   return (
     <Router>
       <Header />
-      <Switch>
-        <Route path="/" component={Home} />
-      </Switch>
+      <div style={{ marginTop: "7rem" }}>
+        <Switch>
+          <Route path="/" component={Home} />
+        </Switch>
+      </div>
     </Router>
   );
 };

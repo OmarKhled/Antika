@@ -8,12 +8,10 @@ const Header = () => {
   const { i18n } = useTranslation();
   document.body.dir = i18n.dir();
   return (
-    <div>
-      <header>
-        <TopBar />
-        <MainNav />
-      </header>
-    </div>
+    <header>
+      <TopBar />
+      <MainNav />
+    </header>
   );
 };
 

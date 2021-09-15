@@ -3,7 +3,7 @@ import React from "react";
 
 const Home = () => {
   // const { t } = useTranslation();
-  return <div>{/* <h1>{t("home")}</h1> */}</div>;
+  return <div style={{ minHeight: "90vh" }}>{/* <h1>{t("home")}</h1> */}</div>;
 };
 
 export default Home;

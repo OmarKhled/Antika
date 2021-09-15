@@ -1,4 +1,5 @@
 import React from "react";
+import "flag-icon-css/css/flag-icon.css";
 import { FaShippingFast } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 
@@ -12,11 +13,17 @@ const TopBar = () => {
   return (
     <div className="top-bar">
       <div className="d-flex justify-content-between">
-        <div className="d-flex align-items-center gap-1">
-          <FaShippingFast />
-          {t("fastShipping")}
+        <div className="top-bar-content-container">
+          <div className="d-flex align-items-center gap-1">
+            <FaShippingFast />
+            {t("fastShipping")}
+          </div>
         </div>
-        <div>
+        <div className="d-flex align-items-center gap-1 top-bar-content-container">
+          <div className="d-flex align-items-center gap-1">
+            {t("saudi")}
+            <span className="flag-icon flag-icon-sa"></span>
+          </div>
           <button className="lang-btn" onClick={handleLanguageSwitch}>
             {i18n.language === "ar" ? "English" : "العربية"}
           </button>
