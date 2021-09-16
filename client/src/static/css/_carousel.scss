@@ -1,0 +1,53 @@
+:root {
+  --orange: #FB8500;
+  --honey: #FFB703;
+  --blue: #0e215e;
+  --cyan: #3eacb1;
+  --ocean: #8ECAE6;
+}
+
+.carousel-container {
+  width: 100%;
+  padding: 1.2rem 1.2rem 0.6rem 1.2rem;
+  background: #fff;
+  border: 1px #cecece solid;
+  border-radius: 2px;
+  .carousel-image-container {
+    opacity: 0;
+    width: 100%;
+    transition: ease 0.5s;
+    .carousel-image {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 153 / 44;
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  .carousel-indecators {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+    margin: 0; padding: 0;
+    margin-top: 0.5em;
+    .carousel-indecator {
+      width: 20px;
+      height: 5px;
+      background: #444;
+      margin-left: 0.5rem;
+      cursor: pointer;
+    }
+    .selected {
+      background: var(--orange) !important;
+    }
+  }
+  .active {
+    opacity: 1;
+  }
+}

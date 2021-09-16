@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
 
 @import './header';
+@import './carousel';
 
 @font-face {
   font-family: "Frugiter";
@@ -15,6 +16,7 @@ body, html {
   width: 100%;
   padding: 0;
   margin: 0;
+  background: #f8f5f1;
 }
 * {
   font-family: 'Poppins', 'Frugiter', sans-serif !important;
