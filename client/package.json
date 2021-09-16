@@ -2,10 +2,12 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://127.0.0.1:8000",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "axios": "^0.21.4",
     "bootstrap": "^5.0.0",
     "flag-icon-css": "^3.5.0",
     "i18next": "^20.6.1",
@@ -38,14 +40,10 @@
   },
   "browserslist": {
     "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+      "since 2010"
     ],
     "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+      "since 2010"
     ]
   }
 }

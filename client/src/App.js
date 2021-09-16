@@ -8,7 +8,7 @@ const App = () => {
       <Header />
       <div className="root">
         <Switch>
-          <Route path="/" component={Home} />
+          <Route exact path="/" component={Home} />
         </Switch>
       </div>
     </Router>

@@ -1,16 +1,34 @@
 import express from "express";
-import colors from "colors";
+import mongoose from "mongoose";
 import path from "path";
+import connectDB from "./config/db.js";
 import dotenv from "dotenv";
+
+import uploadsRoutes from "./routes/uploadsRoute.js";
+import productRoutes from "./routes/productRoutes.js";
+
+import colors from "colors";
 
 dotenv.config();
 
-// connectDB();
+// Init gfs
+let gfs;
+
+connectDB().then(() => {
+  const conn = mongoose.connection;
+  // Init stream
+  gfs = new mongoose.mongo.GridFSBucket(conn.db, {
+    bucketName: "uploads"
+  })
+})
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use("/api/uploads", uploadsRoutes);
+app.use("/api/products", productRoutes);
 
 if (process.env.NODE_ENV == "production") {
   const __dirname = path.resolve();
@@ -18,8 +36,11 @@ if (process.env.NODE_ENV == "production") {
   app.use(express.static(path.join(__dirname, "/client/build")));
 
   app.get("*", (req, res) => {
-    console.log(path.resolve(__dirname, "client", "build", "index.html"));
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+} else {
+  app.get("/", (req, res, next) => {
+    res.send("Welcome to Anteka API!");
   });
 }
 

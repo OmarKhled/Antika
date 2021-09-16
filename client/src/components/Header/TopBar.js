@@ -9,6 +9,7 @@ const TopBar = () => {
     i18n.language === "ar"
       ? i18n.changeLanguage("en")
       : i18n.changeLanguage("ar");
+    window.location.reload();
   };
   return (
     <div className="top-bar">

@@ -11,6 +11,11 @@ const Carousel = () => {
       ar: image_rtl,
       alt: "Antiques Buy",
     },
+    {
+      en: image_ltr,
+      ar: image_rtl,
+      alt: "Antiques Buy",
+    },
   ];
 
   const [active, setActive] = useState(0);
