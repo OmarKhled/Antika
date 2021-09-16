@@ -6,15 +6,7 @@ const App = () => {
   return (
     <Router>
       <Header />
-      <div
-        style={{
-          margin: "auto",
-          marginTop: "9rem",
-          padding: "1rem",
-          minHeight: "90vh",
-          maxWidth: "80%",
-        }}
-      >
+      <div className="root">
         <Switch>
           <Route path="/" component={Home} />
         </Switch>

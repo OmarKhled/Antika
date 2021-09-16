@@ -3,6 +3,7 @@ import Carousel from "../components/Carousel";
 import { useTranslation } from "react-i18next";
 
 const Home = () => {
+  // eslint-disable-next-line
   const { t } = useTranslation();
   return (
     <div>

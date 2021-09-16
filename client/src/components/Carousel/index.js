@@ -25,8 +25,9 @@ const Carousel = () => {
             }`}
           >
             {active === index && (
-              <div className="carousel-image">
+              <div className="embed-responsive embed-responsive-135by44">
                 <img
+                  className="embed-responsive-item"
                   src={i18n.language === "ar" ? image.ar : image.en}
                   alt={image.alt}
                 />

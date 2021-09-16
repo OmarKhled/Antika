@@ -2,6 +2,7 @@
 
 @import './header';
 @import './carousel';
+@import './embed';
 
 @font-face {
   font-family: "Frugiter";
@@ -31,4 +32,20 @@ button {
 }
 .gap-auto>*:not(:last-child) {
   margin-inline-end: 0.5rem !important;
+}
+.root {
+  margin: auto;
+  margin-top: 9rem;
+  padding: 0.8rem;
+  min-height: 90vh;
+  max-width: 80%;
+  @media (max-width: 826px) {
+    max-width: 90%;
+  }
+  @media (max-width: 682px) {
+    max-width: 95%;
+  }
+  @media (max-width: 500px) {
+    max-width: 100%;
+  }
 }
