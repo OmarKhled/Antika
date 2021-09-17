@@ -1,7 +1,8 @@
 // @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
 
-@import './header';
+
 @import './carousel';
+@import './header';
 @import './embed';
 
 @font-face {
@@ -12,6 +13,9 @@
 // Utitlities
 html {
   height: 100%;
+}
+::placeholder {
+  color: #a3a3a3;
 }
 body, html {
   width: 100%;
