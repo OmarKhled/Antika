@@ -73,7 +73,7 @@ const Product = ({
                   }`} />
                   <meta
                     property="og:image"
-                    content={`${window.location.hostname}${img.src[0]}`}
+                    content={`http://${window.location.hostname}${img.src[0]}`}
                   />
                   <meta name="twitter:title" content={`${product[language].name} - ${
                     language === "ar" ? "أنتيكه" : "Antika"
@@ -84,7 +84,7 @@ const Product = ({
                   />
                   <meta
                     name="twitter:image"
-                    content={`${window.location.hostname}${img.src[0]}`}
+                    content={`http://${window.location.hostname}${img.src[0]}`}
                   />
                 </Helmet>
                 <div className="product-showcase-viewer">
