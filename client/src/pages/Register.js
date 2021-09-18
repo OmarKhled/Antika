@@ -1,11 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
   const { t } = useTranslation();
   return (
     <div className="auth-screen">
+      <Helmet>
+        <title>Register - Antika</title>
+      </Helmet>
       <div className="auth-container space-even">
         <div className="d-flex justify-content-center">
           <h1 className="auth-head">{t("register")}</h1>

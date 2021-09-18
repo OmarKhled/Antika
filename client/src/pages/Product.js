@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet";
 
 import { useDispatch, useSelector } from "react-redux";
 import { getProduct } from "../redux/Products/single/singleProductActions";
@@ -31,6 +32,18 @@ const Product = ({
     // eslint-disable-next-line
   }, [product]);
 
+  const structuredData = {
+    "@context": "http://schema.org",
+    "@type": "Product",
+    "name": product["en"].name,
+    "description": product["en"].description,
+    "offers": {
+      "@type": "Offer",
+      "price": `${product.price} SAR`,
+    },
+    "images": img.src.map(image => `${window.location.hostname}${image}`)
+  };
+
   return (
     <>
       {alerts.length > 0 ? (
@@ -46,6 +59,34 @@ const Product = ({
               <LoadingComponent />
             ) : (
               <>
+                <Helmet>
+                  <title>{`${product[language].name} - ${
+                    language === "ar" ? "أنتيكه" : "Antika"
+                  }`}</title>
+                  <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
+                  <meta
+                    property="og:description"
+                    content={`${product[language].description}`}
+                  />
+                  <meta property="og:title" content={`${product[language].name} - ${
+                    language === "ar" ? "أنتيكه" : "Antika"
+                  }`} />
+                  <meta
+                    property="og:image"
+                    content={`${window.location.hostname}${img.src[0]}`}
+                  />
+                  <meta name="twitter:title" content={`${product[language].name} - ${
+                    language === "ar" ? "أنتيكه" : "Antika"
+                  }`} />
+                  <meta
+                    name="twitter:description"
+                    content={`${product[language].description}`}
+                  />
+                  <meta
+                    name="twitter:image"
+                    content={`${window.location.hostname}${img.src[0]}`}
+                  />
+                </Helmet>
                 <div className="product-showcase-viewer">
                   <div className="product-showcase-image-preview embed-responsive embed-responsive-1by1">
                     <img
