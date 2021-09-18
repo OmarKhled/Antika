@@ -6,10 +6,10 @@ import { useTranslation } from "react-i18next";
 const TopBar = () => {
   const { t, i18n } = useTranslation();
   const handleLanguageSwitch = () => {
+    window.location.reload();
     i18n.language === "ar"
       ? i18n.changeLanguage("en")
       : i18n.changeLanguage("ar");
-    window.location.reload();
   };
   return (
     <div className="top-bar">

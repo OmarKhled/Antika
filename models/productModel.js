@@ -1,38 +1,36 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
-const product = {
-  img: {
-    src: "3.jpg",
-    alt: "Telephone",
+const imageSchema = new Schema({
+  src: {
+    type: Array,
+    required: true,
   },
-  en: {
-    name: "Old Telephone",
-    description: "This Telephone shows the old How old phones operated",
+  alt: {
+    type: String,
+    required: true,
   },
-  ar: {
-    name: "هاتف قديمة",
-    description: "تظهر لنا هذه التحفة كيف كانت تعمل الهواتف القديمة",
+});
+const languageSchema = new Schema({
+  name: {
+    type: String,
+    required: true,
   },
-  price: "70",
-  numberOfpurchases: 0,
-  sale: 0,
-};
+  description: {
+    type: String,
+    required: true,
+  },
+  category: {
+    type: String,
+    required: true,
+  },
+});
 
 const productModel = new Schema(
   {
-    img: {
-      type: Object,
-      required: true,
-    },
-    en: {
-      type: Object,
-      required: true,
-    },
-    ar: {
-      type: Object,
-      required: true,
-    },
+    img: imageSchema,
+    en: languageSchema,
+    ar: languageSchema,
     price: {
       type: String,
       required: true,
@@ -40,10 +38,21 @@ const productModel = new Schema(
     numberOfpurchases: {
       type: Number,
       required: true,
+      default: 0,
     },
     sale: {
       type: Number,
       required: true,
+      default: 0,
+    },
+    inStock: {
+      type: Number,
+      required: true,
+    },
+    rating: {
+      type: String,
+      required: true,
+      default: 0,
     },
   },
   {

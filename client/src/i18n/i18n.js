@@ -18,6 +18,8 @@ i18n
   .use(initReactI18next)
   .init({
     debug: false,
+    whitelist: ["ar", "en"],
+    load: "currentOnly",
     fallbackLng: "ar",
     resources: resources,
     interpolation: {

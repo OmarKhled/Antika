@@ -43,6 +43,7 @@ const Carousel = () => {
         <ul className="carousel-indecators">
           {images.map((image, index) => (
             <li
+              key={index}
               className={`carousel-indecator ${
                 active === index ? "selected" : ""
               }`}

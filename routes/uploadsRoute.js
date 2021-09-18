@@ -1,14 +1,14 @@
 import express from "express";
 import upload from "../middlewares/uploads.js";
-import mongoose from "mongoose"
-import dotenv from "dotenv"
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 import path from "path";
-import colors from "colors"
+import colors from "colors";
 
-dotenv.config()
+dotenv.config();
 
 const router = express.Router();
- 
+
 // Init gfs
 let gfs;
 // Init DB Connection
@@ -16,18 +16,16 @@ const conn = mongoose.createConnection(process.env.MONGO_URI);
 
 conn.once("open", () => {
   gfs = new mongoose.mongo.GridFSBucket(conn.db, {
-    bucketName: "uploads"
-  })
+    bucketName: "uploads",
+  });
 });
-
 
 // @route  POST   /api/uploads
 // @desc   Upload file to db
 // @access Public
 router.post("/", upload.single("image"), (req, res, next) => {
-  
   if (!req.file) {
-    console.log('No files are sent'.red.bold)
+    console.log("No files are sent".red.bold);
   }
   res.json({ file: req.file });
 });
@@ -45,12 +43,16 @@ router.get("/images/:filename", (req, res) => {
     const file = files[0];
     const contentType = file.contentType;
 
-    if (contentType === "image/jpeg" || contentType === "image/png" || contentType === "image/jpg") {
-      const { _id } = file
+    if (
+      contentType === "image/jpeg" ||
+      contentType === "image/png" ||
+      contentType === "image/jpg"
+    ) {
+      const { _id } = file;
       const readstream = gfs.openDownloadStream(_id);
       readstream.pipe(res);
     } else {
-      res.status(401).json({ msg: "File isn't a photo" })
+      res.status(401).json({ msg: "File isn't a photo" });
     }
   });
 });

@@ -4,6 +4,7 @@
 @import './carousel';
 @import './header';
 @import './embed';
+@import './products';
 
 @font-face {
   font-family: "Frugiter";
@@ -30,12 +31,37 @@ body, html {
 textarea:focus, input:focus, textarea:active, input:active{
   outline: none;
 }
+h1, h2, h3, h4, h5, h6, p, label {
+  margin: 0;
+}
 button {
   background: none;
   border: none;
 }
+a {
+  cursor: pointer;
+  text-decoration: none !important;
+  color: inherit;
+  &:hover {
+    text-decoration: underline !important;
+    color: inherit;
+  }
+}
+input[type="text"] {
+  width: 100%;
+  border: var(--orange) solid 1px;
+  border-radius: 7px !important;
+  padding: 0.5rem 0.5rem;
+  position: relative;
+}
 .gap-auto>*:not(:last-child) {
   margin-inline-end: 0.5rem !important;
+}
+.gap-auto-1>*:not(:last-child) {
+  margin-inline-end: 0.2rem !important;
+}
+.space-even>*:not(:last-child) {
+  margin-bottom: 0.4rem;
 }
 .root {
   margin: auto;
@@ -52,4 +78,19 @@ button {
   @media (max-width: 500px) {
     max-width: 100%;
   }
+}
+.spinner-orange {
+  color: var(--orange);
+}
+.error {
+  width: 100%;
+  background: rgba(219, 17, 17, 0.658);
+  border: 1px solid rgba(189, 7, 7, 0.507);
+  padding: 0.6em 1.5em;
+  border-radius: 7px;
+  color: #fff;
+}
+.muted {
+  color: #a3a3a3;
+  font-size: 13px !important;
 }

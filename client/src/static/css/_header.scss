@@ -98,6 +98,13 @@ header {
         padding: 0.5rem 0.5rem;
         position: relative;
       }
+      .search-bar[dir="ltr"] {
+        border-radius: 7px 0 0 7px !important;
+      }
+      .search-bar[dir="rtl"] {
+        border-radius: 0 7px 7px 0 !important;
+
+      }
       .search-icon {
         background: var(--orange);
         padding: 0 0.9rem;
