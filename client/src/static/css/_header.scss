@@ -1,11 +1,3 @@
-:root {
-  --orange: #fb7100;
-  --honey: #ff843c;
-  --blue: #0e215e;
-  --cyan: #3eacb1;
-  --ocean: #8ECAE6;
-}
-
 // Global
 header {
   position: fixed;
@@ -13,7 +5,7 @@ header {
   right: 0;
   left: 0;
   transition: ease 0.4s;
-  color: #333;
+  color: var(--darkgrey);
   z-index: 10000;
   box-shadow: 4px 1px 20px 0px rgba(0, 0, 0, 0.1)
 }
@@ -23,7 +15,7 @@ header {
 
 // Top Bar
 .top-bar {
-  background: #333;
+  background: var(--darkgrey);
   border-bottom: #8f8f8f 1px solid;
   color: #fff;
   padding: 0.4rem;
@@ -55,7 +47,7 @@ header {
   height: 80px;
   padding: 1rem;
   background: #fdf2dc;
-  border-bottom: var(--honey) 2px solid;
+  border-bottom: var(--brightprimary) 2px solid;
   display: grid;
   grid-template-columns: auto 6fr auto;
   // gap: 1rem;
@@ -67,9 +59,6 @@ header {
   .logo-container img {
     height: 100%;
   }
-  #nav-logo {
-    filter: invert(49%) sepia(33%) saturate(5618%) hue-rotate(4deg) brightness(104%) contrast(105%);
-  }
   .search-bar-container {
     display: flex;
     align-items: center;
@@ -78,7 +67,7 @@ header {
       .inside-container {
         position: relative;
         border-radius: 7px;
-        background: var(--orange);
+        background: var(--primary);
         width: 80%;
         @media(max-width: 845px) {
           width: 100%;
@@ -91,7 +80,7 @@ header {
       }
       .search-bar {
         width: 100%;
-        border: var(--orange) solid 1px;
+        border: var(--primary) solid 1px;
         border-radius: 0 !important;
         border-start-start-radius: 7px !important;
         border-end-start-radius: 7px !important;
@@ -106,7 +95,7 @@ header {
 
       }
       .search-icon {
-        background: var(--orange);
+        background: var(--primary);
         padding: 0 0.9rem;
         color: #fff;
       }
@@ -117,6 +106,6 @@ header {
     border-inline-end: 1px #9b9b9b solid ;
   }
   .links .icon {
-    color: var(--orange);
+    color: var(--primary);
   }
 }

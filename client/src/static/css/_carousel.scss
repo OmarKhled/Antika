@@ -1,11 +1,3 @@
-// :root {
-//   --orange: #FB8500;
-//   --honey: #FFB703;
-//   --blue: #0e215e;
-//   --cyan: #3eacb1;
-//   --ocean: #8ECAE6;
-// }
-
 .carousel-container {
   width: 100%;
   padding: 1.2rem 1.4rem 0.6rem 1.4rem;
@@ -45,7 +37,7 @@
       cursor: pointer;
     }
     .selected {
-      background: var(--orange) !important;
+      background: var(--primary) !important;
     }
   }
   .active {

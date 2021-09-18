@@ -1,11 +1,3 @@
-:root {
-  --orange: #f46526;
-  --secondary: #ff8c2d;
-  --blue: #0e215e;
-  --cyan: #3eacb1;
-  --ocean: #8ECAE6;
-}
-
 .prodcuts-container {
   background: rgb(252, 252, 252);
   padding: 1.4em;
@@ -38,51 +30,6 @@
     padding: 0.8rem;
     font-size: 0.9em;
   }
-}
-.product-card-button {
-  display: block;
-  text-align: center;
-  width: 100%;
-  padding: 0.8rem 1rem;
-  margin: 0.8rem 0 0 0;
-  background: var(--orange);
-  color: #fff;
-  border-radius: 7px;
-  transition: 0.25s;
-  font-size: 1.1em;
-  text-decoration: none !important;
-  &:hover {
-    color: #fff;
-    background: var(--secondary) !important;
-    text-decoration: none !important;
-  }
-  &:active {
-    color: #fff !important;
-    transform: scale(0.97);
-    text-decoration: none !important;
-  }
-}
-.product-card-button-inline {
-  width: fit-content;
-  min-width: fit-content;
-  display: block;
-  padding: 0.8rem 1rem;
-  // margin: 0.8rem 0 0 0;
-  background: var(--orange);
-  color: #fff;
-  border-radius: 7px;
-  transition: 0.25s;
-  font-size: 1.1em;
-  &:hover {
-    background: var(--secondary) !important
-  }
-  &:active {
-    transform: scale(0.97);
-  }
-}
-.product-card-button-inline:disabled {
-  background: #ff8e5d !important;
-  cursor:not-allowed;
 }
 .price {
   color: #B12704;
@@ -148,7 +95,7 @@
       align-items: center;
       width: fit-content;
       color: #fff;
-      background: #f46526;
+      background: var(--primary);
       border-radius: 5px;
       padding: 1px;
       p {

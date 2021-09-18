@@ -1,18 +1,28 @@
 // @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
-
+:root {
+  --primary: #d4a551;
+  --brightprimary: #dbb562;
+  --secondary: #1c5b81;
+  --brightsecondary: #216b99;
+  --darkgrey: #333;
+  // --blue: #0e215e;
+  // --cyan: #3eacb1;
+  // --ocean: #8ECAE6;
+}
 
 @import './carousel';
 @import './header';
 @import './embed';
 @import './products';
 @import './auth';
+@import './buttons';
 
 @font-face {
   font-family: "Frugiter";
   src: url("../fonts/frutiger-arabic.ttf") format("truetype");
 }
 
-// Utitlities
+// General
 html {
   height: 100%;
 }
@@ -42,28 +52,13 @@ button {
 a {
   cursor: pointer;
   text-decoration: none !important;
-  color: #333;
+  color: var(--darkgrey);
   &:hover {
     text-decoration: underline !important;
     color: inherit;
   }
 }
-input {
-  display: block;
-  border: var(--orange) solid 1px;
-  border-radius: 7px !important;
-  padding: 0.5rem 0.5rem;
-  position: relative;
-}
-.gap-auto>*:not(:last-child) {
-  margin-inline-end: 0.5rem !important;
-}
-.gap-auto-1>*:not(:last-child) {
-  margin-inline-end: 0.2rem !important;
-}
-.space-even>*:not(:last-child) {
-  margin-bottom: 0.4rem;
-}
+// Main Container
 .root {
   margin: auto;
   margin-top: 9rem;
@@ -80,10 +75,29 @@ input {
     max-width: 100%;
   }
 }
+// Utilities
+input {
+  display: block;
+  border: var(--primary) solid 1px;
+  border-radius: 7px !important;
+  padding: 0.5rem 0.5rem;
+  position: relative;
+}
+  // Grid 
+  .gap-auto>*:not(:last-child) {
+    margin-inline-end: 0.5rem !important;
+  }
+  .gap-auto-1>*:not(:last-child) {
+    margin-inline-end: 0.2rem !important;
+  }
+  .space-even>*:not(:last-child) {
+    margin-bottom: 0.4rem;
+  }
+
 .spinner-orange, .text-orange {
-  color: var(--orange);
+  color: var(--primary);
   &:hover {
-    color: var(--orange);
+    color: var(--primary);
   }
 }
 .error {

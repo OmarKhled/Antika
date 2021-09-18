@@ -152,13 +152,13 @@ const Product = ({
                   <div className="d-flex align-items-center gap-auto">
                     <button
                       disabled={inStock === 0}
-                      className="product-card-button-inline"
+                      className="button-primary"
                     >
                       {t("addtocart")}
                     </button>
                     <button
                       disabled={inStock === 0}
-                      className="product-card-button-inline bg-success"
+                      className="button-secondary"
                     >
                       {t("requestpreview")}
                     </button>
@@ -175,7 +175,7 @@ const Product = ({
                 className="w-100"
                 placeholder={t("writereview")}
               />
-              <button className="product-card-button-inline">
+              <button className="button-primary">
                 {t("addreview")}
               </button>
             </div>
