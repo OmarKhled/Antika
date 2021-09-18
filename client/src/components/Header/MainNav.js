@@ -28,12 +28,14 @@ const MainNav = () => {
         </div>
       </div>
       <div className="d-flex align-items-center gap-auto links">
-        <div className="d-flex align-items-center gap-auto">
-          <FaUser className="icon" />
-          <BrowserView>
-            <span>{t("login")}</span>
-          </BrowserView>
-        </div>
+        <Link to="/login">
+          <div className="d-flex align-items-center gap-auto">
+            <FaUser className="icon" />
+            <BrowserView>
+              <span>{t("login")}</span>
+            </BrowserView>
+          </div>
+        </Link>
         <div className="d-flex align-items-center gap-auto">
           <FaShoppingCart className="icon" />
           <BrowserView>

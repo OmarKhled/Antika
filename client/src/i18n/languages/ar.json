@@ -20,5 +20,17 @@
   "reviews": "التقييمات",
   "writereview": "اكتب تقييم",
   "addreview": "أضف تقييم",
+  "notregistered": "لم تسجل بعد ؟",
+  "registernow": "سجل الان",
+  "email": "البريد الإلكترونى: ",
+  "enteremail": "أدخل بريدك الإلكترونى",
+  "passowrd": "كلمة السر:",
+  "enterpassowrd": "أدخل كلمة السر",
+  "register": "تسجيل حساب",
+  "alreadyregistered": "لديك حساب بالفعل ؟",
+  "name": "الأسم",
+  "entername": "أدخل أسمك كاملا",
+  "confirmpassowrd": "تأكيد كلمة السر:",
+  "enterconfirmpassowrd": "أدخل كلمة السر مجددا",
   "test": "تجربة"
 }

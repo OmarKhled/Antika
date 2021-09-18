@@ -5,6 +5,7 @@
 @import './header';
 @import './embed';
 @import './products';
+@import './auth';
 
 @font-face {
   font-family: "Frugiter";
@@ -41,14 +42,14 @@ button {
 a {
   cursor: pointer;
   text-decoration: none !important;
-  color: inherit;
+  color: #333;
   &:hover {
     text-decoration: underline !important;
     color: inherit;
   }
 }
-input[type="text"] {
-  width: 100%;
+input {
+  display: block;
   border: var(--orange) solid 1px;
   border-radius: 7px !important;
   padding: 0.5rem 0.5rem;
@@ -79,8 +80,11 @@ input[type="text"] {
     max-width: 100%;
   }
 }
-.spinner-orange {
+.spinner-orange, .text-orange {
   color: var(--orange);
+  &:hover {
+    color: var(--orange);
+  }
 }
 .error {
   width: 100%;

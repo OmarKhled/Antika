@@ -117,7 +117,7 @@ const Product = ({
                     </button>
                     <button
                       disabled={inStock === 0}
-                      className="product-card-button-inline"
+                      className="product-card-button-inline bg-success"
                     >
                       {t("requestpreview")}
                     </button>
@@ -129,7 +129,11 @@ const Product = ({
           <div className="mt-5">
             <h3>{t("reviews")}</h3>
             <div className="d-flex align-items-center justify-content-center gap-2">
-              <input type="text" placeholder={t("writereview")} />
+              <input
+                type="text"
+                className="w-100"
+                placeholder={t("writereview")}
+              />
               <button className="product-card-button-inline">
                 {t("addreview")}
               </button>

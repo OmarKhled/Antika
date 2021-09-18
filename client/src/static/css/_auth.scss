@@ -1,0 +1,26 @@
+.auth-screen {
+  width: 100%;
+  // display: flex;
+  // justify-content: center;
+  .auth-container {
+    max-width: 25rem;
+    margin: auto;
+    p {
+      text-align: center;
+    }
+    .auth-head {
+      display: inline-block;
+      margin: auto;
+      &::after {
+        content: '';
+        display: block;
+        height: 5px;
+        width: 100%;
+        background: linear-gradient(to right, #ff762f, #ffbc00);
+        border-radius: 100vw;
+        margin-top: 0.2rem;
+        margin-bottom: 0.3rem;
+      }
+    }
+  }
+}

@@ -19,6 +19,18 @@
   "outofstock": "Out Of Stock",
   "reviews": "Reviews",
   "writereview": "Write Review",
+  "notregistered": "Not Regisered yet?",
+  "registernow": "Register now",
+  "email": "Email: ",
+  "enteremail": "Enter Your Email",
+  "passowrd": "Password: ",
+  "enterpassowrd": "Enter Your Password",
+  "register": "Register",
+  "alreadyregistered": "Already have an account ?",
+  "name": "Name",
+  "entername": "Enter Your Ful Name",
+  "confirmpassowrd": "Password Confirmation:",
+  "enterconfirmpassowrd": "Password Confirmation",
   "addreview": "Add Review",
   "test": "Test"
 }
