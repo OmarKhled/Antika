@@ -42,7 +42,7 @@ const Register = () => {
             className="w-100"
             placeholder={t("enterconfirmpassowrd")}
           />
-          <button className="product-card-button-inline w-100">
+          <button className="button-primary w-100 mt-3">
             {t("register")}
           </button>
         </div>

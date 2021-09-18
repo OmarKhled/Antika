@@ -35,7 +35,7 @@ const ProductCard = ({ product }) => {
         <p>
           {t("category")}: <a href="#/">{product[language].category}</a>
         </p>
-        <Link to={`/products/${product._id}`} className="button-primary w-100">
+        <Link to={`/products/${product._id}`} className="button-primary w-100 mt-2">
           {t("seemore")}
         </Link>
       </div>

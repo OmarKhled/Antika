@@ -35,7 +35,7 @@ const Login = () => {
             className="w-100"
             placeholder={t("enterpassowrd")}
           />
-          <button className="product-card-button-inline w-100">
+          <button className="button-primary w-100 mt-3">
             {t("login")}
           </button>
         </div>
