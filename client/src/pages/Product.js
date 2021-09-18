@@ -41,7 +41,7 @@ const Product = ({
       "@type": "Offer",
       "price": `${product.price} SAR`,
     },
-    "images": img.src.map(image => `${window.location.hostname}${image}`)
+    "image": img.src.map(image => `${window.location.hostname}${image}`)
   };
 
   return (
