@@ -27,8 +27,8 @@ const ProductsShow = () => {
         <LoadingComponent />
       ) : alerts.length > 0 ? (
         <>
-          {alerts.map((alert) => (
-            <div className="error">{alert}</div>
+          {alerts.map((alert, index) => (
+            <div key={index} className="error mt-2">{alert}</div>
           ))}
         </>
       ) : (

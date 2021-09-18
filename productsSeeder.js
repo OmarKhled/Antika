@@ -6,69 +6,14 @@ import fs from "fs";
 import axios from "axios";
 import Product from "./models/productModel.js";
 import colors from "colors";
+import products from "./data/products.js"
+
+import Categories from "./models/categoriesModel.js"
 
 dotenv.config();
 connectDB();
 
 const exportData = async () => {
-  const products = [
-    {
-      img: {
-        src: ["1.jpg", "4.jpg"],
-        alt: "Old World Glope",
-      },
-      en: {
-        name: "Old World Glope",
-        description:
-          "This Antiques shows the map of thw world before the conyinats have moved",
-        category: "Decor",
-      },
-      ar: {
-        name: "كرة أرضية قديمة",
-        description: "هذه التحفة تظهر خريطة العالم قبل ان تتحرك القارات",
-        category: "ديكور",
-      },
-      price: "40",
-      inStock: 30,
-    },
-    {
-      img: {
-        src: ["2.jpg"],
-        alt: "Vase",
-        category: "Decor",
-      },
-      en: {
-        name: "Old Vase",
-        description: "This Vase Belonged to the king Luis the 7th",
-        category: "Decor",
-      },
-      ar: {
-        name: "مزهرية قديمة",
-        description: "كانت هذه المزهرية ملكا للملك لويس السابع",
-        category: "ديكور",
-      },
-      price: "80",
-      inStock: 0,
-    },
-    {
-      img: {
-        src: ["3.jpg"],
-        alt: "Telephone",
-      },
-      en: {
-        name: "Old Telephone",
-        description: "This Telephone shows How old phones operated",
-        category: "Decor",
-      },
-      ar: {
-        name: "هاتف قديم",
-        description: "تظهر لنا هذه التحفة كيف كانت تعمل الهواتف القديمة",
-        category: "ديكور",
-      },
-      price: "70",
-      inStock: 3,
-    },
-  ];
   try {
     // Deleting all products
     await Product.deleteMany();
@@ -88,6 +33,12 @@ const exportData = async () => {
         // console.log(res.data.file.filename);
       }
       console.log(product.img.src);
+
+      const categories = await Categories.find({});
+      const category = categories.find(category => category.name.en === product.category.toLowerCase())
+
+      product.category = category._id
+      
       const dbProduct = new Product(product);
 
       await dbProduct.save();

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
+import _ from "lodash";
 
 import { useDispatch, useSelector } from "react-redux";
 import { getProduct } from "../redux/Products/single/singleProductActions";
@@ -16,7 +17,7 @@ const Product = ({
 }) => {
   const dispatch = useDispatch();
   const { product, loading, alerts } = useSelector((state) => state.product);
-  const { img, price, inStock } = product;
+  const { img, price, inStock, category, specifications } = product;
 
   const { i18n, t } = useTranslation();
   const { language } = i18n;
@@ -48,16 +49,17 @@ const Product = ({
     <>
       {alerts.length > 0 ? (
         <>
-          {alerts.map((alert) => (
-            <div className="error">{alert}</div>
+          {alerts.map((alert, index) => (
+            <div key={index} className="error">{alert}</div>
           ))}
         </>
       ) : (
         <>
-          <div className="product-showcase">
-            {loading ? (
+        {loading ? (
               <LoadingComponent />
             ) : (
+              <>
+          <div className="product-showcase">
               <>
                 <Helmet>
                   <title>{`${product[language].name} - ${
@@ -91,7 +93,7 @@ const Product = ({
                   <div className="product-showcase-image-preview embed-responsive embed-responsive-1by1">
                     <img
                       src={mainImg}
-                      alt={img.alt}
+                      alt={product[language].name}
                       className="embed-responsive-item"
                     />
                   </div>
@@ -111,9 +113,20 @@ const Product = ({
                     ))}
                   </div>
                 </div>
-                <div className="product-showcase-details space-even">
+                <div className="product-showcase-details space-even-0">
                   <h1>{product[language].name}</h1>
                   <p className="description">{product[language].description}</p>
+                  <p>{t("category")}: <a href="#/">{_.startCase(category.name[language])}</a></p>
+                  <div>
+                    <p>{t("features")}:</p>
+                    <ul>
+                    {
+                      specifications.features.map((feature, index) => (
+                        <li key={index}>{feature[language]}</li>
+                      ))
+                    }
+                    </ul>
+                  </div>
                   <h5 className="price">
                     {price} {t("sa")}
                     <p className="muted">{t("includingtax")}</p>
@@ -149,7 +162,7 @@ const Product = ({
                       </div>
                     )
                   )}
-                  <div className="d-flex align-items-center gap-auto">
+                  <div className="d-flex align-items-center gap-auto mt-2">
                     <button
                       disabled={inStock === 0}
                       className="button-primary"
@@ -165,7 +178,36 @@ const Product = ({
                   </div>
                 </div>
               </>
-            )}
+          </div>
+          <div className="mt-4 showcase">
+            <h3 className="mb-2">{t("specifications")}</h3>
+            <ul>
+              {
+                (specifications.width && specifications.height) && (
+                  <>
+                    <li>{t("width")}: {specifications.width} {t("cm")}</li>
+                    <li>{t("height")}: {specifications.height} {t("cm")}</li>
+                  </>
+                ) 
+              }
+              {
+                (specifications.brand && specifications.brand["en"] && specifications.brand["ar"]) && (
+                  <li>{t("brand")}: {specifications.brand[language]}</li>
+                )
+              }
+              <li>
+              <div>
+              <p>{t("features")}:</p>
+              <ul>
+              {
+                specifications.features.map((feature, index) => (
+                  <li key={index}>{feature[language]}</li>
+                ))
+              }
+              </ul>
+            </div>
+              </li>
+            </ul>
           </div>
           <div className="mt-5">
             <h3>{t("reviews")}</h3>
@@ -180,6 +222,8 @@ const Product = ({
               </button>
             </div>
           </div>
+          </>
+          )}
         </>
       )}
     </>

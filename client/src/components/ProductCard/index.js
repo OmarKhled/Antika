@@ -1,4 +1,5 @@
 import React from "react";
+import _ from "lodash"
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
@@ -33,7 +34,7 @@ const ProductCard = ({ product }) => {
           {language === "ar" ? toIndiaDigits(price) : price} {t("sa")}
         </p>
         <p>
-          {t("category")}: <a href="#/">{product[language].category}</a>
+          {t("category")}: <a href="#/">{_.startCase(product.category.name[language])}</a>
         </p>
         <Link to={`/products/${product._id}`} className="button-primary w-100 mt-2">
           {t("seemore")}
