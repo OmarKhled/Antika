@@ -7,6 +7,7 @@
   "login": "Login",
   "leatestproducts": "Leatest Products",
   "category": "Category",
+  "categories": "Categoies",
   "sa": "SAR",
   "addtocart": "Add to Cart",
   "shippedfrom": "Shipped From Antika",
@@ -38,5 +39,16 @@
   "confirmpassowrd": "Password Confirmation:",
   "enterconfirmpassowrd": "Password Confirmation",
   "addreview": "Add Review",
-  "test": "Test"
+  "antiques": "Antiques",
+  "classicantiques": "Classic Antiques",
+  "naturalantiques": "Natural Antiques",
+  "wallpapers": "Wallpapers",
+  "ceilingantiques": "Ceiling Antiques",
+  "home": "Home",
+  "services": "Services",
+  "about": "About",
+  "policy": "Policy",
+  "rights": "All rights reserved",
+  "searchresults": "Search Results",
+  "noproducts": "No Products Found"
 }

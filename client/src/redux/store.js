@@ -4,10 +4,12 @@ import thunk from "redux-thunk";
 
 import productsReducers from "./Products/batch/productsReducers";
 import productReducers from "./Products/single/singleProductReducer";
+import searchReducers from "./Search/searchReducers";
 
 const reducers = combineReducers({
   products: productsReducers,
   product: productReducers,
+  search: searchReducers,
 });
 
 const middleWares = [thunk];

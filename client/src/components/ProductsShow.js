@@ -28,14 +28,16 @@ const ProductsShow = () => {
       ) : alerts.length > 0 ? (
         <>
           {alerts.map((alert, index) => (
-            <div key={index} className="error mt-2">{alert}</div>
+            <div key={index} className="error mt-2">
+              {alert}
+            </div>
           ))}
         </>
       ) : (
         <Row>
           {products.map((product, index) => (
             <Col xs="12" sm="6" md="4" lg="3" key={index}>
-              <ProductCard product={product} />
+              <ProductCard product={product} loading={false} />
             </Col>
           ))}
         </Row>

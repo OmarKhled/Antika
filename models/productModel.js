@@ -26,25 +26,25 @@ const simpleLanguagechema = new Schema({
   ar: {
     type: String,
   },
-})
+});
 
 const specificationsSchema = new Schema({
   width: {
     type: Number,
-    required: true
+    required: true,
   },
   height: {
     type: Number,
-    required: true
+    required: true,
   },
-  brand: { 
-    type: simpleLanguagechema
+  brand: {
+    type: simpleLanguagechema,
   },
   features: [
     {
-      type: simpleLanguagechema
-    }
-  ]
+      type: simpleLanguagechema,
+    },
+  ],
 });
 
 const productModel = new Schema(
@@ -55,10 +55,10 @@ const productModel = new Schema(
     category: {
       type: mongoose.Types.ObjectId,
       required: true,
-      ref: "Categories"
+      ref: "Categories",
     },
     price: {
-      type: String,
+      type: Number,
       required: true,
     },
     numberOfpurchases: {
@@ -73,7 +73,7 @@ const productModel = new Schema(
     },
     specifications: {
       type: specificationsSchema,
-      required: true
+      required: true,
     },
     inStock: {
       type: Number,

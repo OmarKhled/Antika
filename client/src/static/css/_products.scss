@@ -25,6 +25,26 @@
     padding: 0.8rem;
     font-size: 0.9em;
   }
+  &.loading {
+    .product-card-image {
+      img {
+        animation: skeleton-loading 1.5s linear infinite alternate;
+      }
+    }
+    p {
+      width: 100%;
+      height: 5px;
+      animation: skeleton-loading 1.5s linear infinite alternate;
+      margin-bottom: 5px;
+    }
+    .head {
+      height: 15px;
+      margin-bottom: 10px;
+    }
+  }
+  .price {
+    margin: 0 !important;
+  }
 }
 .price {
   color: #B12704;

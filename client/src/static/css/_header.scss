@@ -6,7 +6,7 @@ header {
   left: 0;
   transition: ease 0.4s;
   color: var(--darkgrey);
-  z-index: 10000;
+  z-index: 200;
   box-shadow: 4px 1px 20px 0px rgba(0, 0, 0, 0.1)
 }
 .squeez {
@@ -33,9 +33,6 @@ header {
     // margin-inline-end: 5px;
     border-inline-end: 1px #9b9b9b solid ;
   }
-  // @media (max-width: 575px) {
-  //   display: none;
-  // }
 }
 // Main Bar
 .nav-container>*:not(:last-child) {
@@ -46,15 +43,22 @@ header {
   width: 100%;
   height: 80px;
   padding: 1rem;
-  background: #fdf2dc;
-  border-bottom: var(--brightprimary) 2px solid;
+  background: #fff7e6;
+  border-bottom: var(--brightprimary) 2px solid !important;
   display: grid;
   grid-template-columns: auto 6fr auto;
-  // gap: 1rem;
+  z-index: 202;
 
   .logo-container {
     height: 100%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    color: var(--primary);
+    .hamburger-button {
+      font-size: 1.3rem;
+      cursor: pointer;
+    }
   }
   .logo-container img {
     height: 100%;
@@ -108,4 +112,28 @@ header {
   .links .icon {
     color: var(--primary);
   }
+}
+.categories-bar {
+  position: relative;
+  width: 100%;
+  // height: 40px;
+  padding: 0.3rem;
+  background: #fdf2dc;
+  border-bottom: var(--brightprimary) 2px solid;
+  z-index: 200;
+  transition: ease 0.4s;
+  .category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    font-size: 0.8rem;
+    color: #68584a;
+    img {
+      width: 30px;
+    }
+  }
+}
+.hide {
+  margin-top: -38.2px;
 }

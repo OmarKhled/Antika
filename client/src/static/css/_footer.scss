@@ -1,0 +1,37 @@
+.footer {
+  padding: 1.5rem 2rem;
+  background: var(--bluishgrey);
+  border-top: var(--primary) 2px solid;
+  width: 100%;
+  color: rgb(255, 255, 255) !important;
+  font-size: 1.1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  ul {
+    margin: 0;
+    list-style: none;
+  }
+  section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+}
+.bottom {
+  width: 100%;
+  text-align: center;
+  background: #2a2d2f;
+  color: #fff;
+  padding: 5px;
+}

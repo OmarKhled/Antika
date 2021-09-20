@@ -1,28 +1,54 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, withRouter } from "react-router-dom";
 import { FaSearch, FaShoppingCart, FaUser } from "react-icons/fa";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { useTranslation } from "react-i18next";
-import { BrowserView } from "react-device-detect";
 
-const MainNav = () => {
+import { useDispatch } from "react-redux";
+import { requestSearch } from "../../redux/Search/searchActions";
+
+const MainNav = ({ setOpen, open, history }) => {
   const { t, i18n } = useTranslation();
+  const dispatch = useDispatch();
+
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     document.querySelector(".search-bar").dir = i18n.dir();
     // eslint-disable-next-line
   }, [i18n.language]);
 
+  const handleSearch = () => {
+    if (!(!search || search === "" || search.replace(/\s/g, "").length === 0)) {
+      dispatch(requestSearch(search, i18n.language));
+      history.push("/search");
+    }
+  };
+
   return (
     <nav className="nav-container">
-      <div className="logo-container">
+      <div className="logo-container gap-auto">
+        <GiHamburgerMenu
+          className="hamburger-button mobile-view"
+          onClick={() => setOpen(!open)}
+        />
         <Link to="/">
           <img id="nav-logo" alt={t("logo.alt")} src={t("logo.src")} />
         </Link>
       </div>
       <div className="search-bar-container">
         <div className="inside-container">
-          <input type="text" className="search-bar" placeholder={t("search")} />
-          <button className="search-icon">
+          <input
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            onKeyPressCapture={({ key }) =>
+              key === "Enter" ? handleSearch() : ""
+            }
+            type="text"
+            className="search-bar"
+            placeholder={t("search")}
+          />
+          <button onClick={handleSearch} className="search-icon">
             <FaSearch />
           </button>
         </div>
@@ -31,20 +57,16 @@ const MainNav = () => {
         <Link to="/login">
           <div className="d-flex align-items-center gap-auto">
             <FaUser className="icon" />
-            <BrowserView>
-              <span>{t("login")}</span>
-            </BrowserView>
+            <span className="browser-view">{t("login")}</span>
           </div>
         </Link>
         <div className="d-flex align-items-center gap-auto">
           <FaShoppingCart className="icon" />
-          <BrowserView>
-            <span>{t("cart")}</span>
-          </BrowserView>
+          <span className="browser-view">{t("cart")}</span>
         </div>
       </div>
     </nav>
   );
 };
 
-export default MainNav;
+export default withRouter(MainNav);

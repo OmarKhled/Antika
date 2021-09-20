@@ -12,7 +12,7 @@ const TopBar = () => {
       : i18n.changeLanguage("ar");
   };
   return (
-    <div className="top-bar">
+    <div className="top-bar browser-view">
       <div className="d-flex justify-content-between">
         <div className="top-bar-content-container">
           <div className="d-flex align-items-center gap-auto">

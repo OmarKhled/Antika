@@ -7,6 +7,7 @@
   "login": "تسجيل الدخول",
   "leatestproducts": "أخر المنتجات",
   "category": "الفئة",
+  "categories": "الفئات",
   "addtocart": "أضف إلى العربة",
   "seemore": "أظهر المزيد",
   "sa": "ريال سعودى",
@@ -38,5 +39,16 @@
   "entername": "أدخل أسمك كاملا",
   "confirmpassowrd": "تأكيد كلمة السر:",
   "enterconfirmpassowrd": "أدخل كلمة السر مجددا",
-  "test": "تجربة"
+  "antiques": "تحف",
+  "classicantiques": "تحف كلاسيكيه",
+  "naturalantiques": "تحف طبيعيه",
+  "wallpapers": "ورق حائط",
+  "ceilingantiques": "تحف أسقف",
+  "home": "الصفحة الرئيسيه",
+  "services": "الخدمات",
+  "about": "عن الموقع",
+  "policy": "الأتفاقية",
+  "rights": "جميع الحقوق محفوظة",
+  "searchresults": "نتائج البحث",
+  "noproducts": "لم يتم العثور على منتجات"
 }

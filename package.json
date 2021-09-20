@@ -8,6 +8,7 @@
     "server": "nodemon server",
     "client": "npm start --prefix client",
     "clientInstall": "npm install --prefix client",
+    "installAll": "npm run clientInstall && npm install",
     "dev": "concurrently \" npm run server \" \" npm run client \"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false CI=false npm run clientInstall && npm run build --prefix client"
   },

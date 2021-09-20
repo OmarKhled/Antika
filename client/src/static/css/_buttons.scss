@@ -18,6 +18,11 @@
     text-decoration: none !important;
     cursor: not-allowed;
   }
+  &.loading {
+    animation: skeleton-loading 1.5s infinite alternate;
+    font-size: 0;
+    line-height: 1.3rem;
+  }
 }
 
 .button-primary {

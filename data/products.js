@@ -16,7 +16,7 @@ export default [
     specifications: {
       width: 30,
       height: 40,
-      brand: {en: "Antiques co", ar: "شركة الأنتيكات" },
+      brand: { en: "Antiques co", ar: "شركة الأنتيكات" },
       features: [
         {
           en: "Gives a good look to your office",
@@ -26,10 +26,10 @@ export default [
           en: "Reduces Stress",
           ar: "تقلل من التوتر",
         },
-      ]
+      ],
     },
     rating: 3,
-    price: "40",
+    price: 40,
     inStock: 30,
   },
   {
@@ -55,9 +55,9 @@ export default [
           en: "Gives a good look to your office",
           ar: "تعطى شكلا جماليا لمكتبك",
         },
-      ]
+      ],
     },
-    price: "80",
+    price: 80,
     inStock: 0,
   },
   {
@@ -77,15 +77,15 @@ export default [
     specifications: {
       width: 30,
       height: 40,
-      brand: {en: "", ar: ""},
+      brand: { en: "", ar: "" },
       features: [
         {
           en: "Gives a good look to your office",
           ar: "تعطى شكلا جماليا لمكتبك",
         },
-      ]
+      ],
     },
-    price: "70",
+    price: 70,
     inStock: 3,
   },
 ];
