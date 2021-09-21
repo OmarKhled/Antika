@@ -24,6 +24,8 @@ const Search = () => {
       <h4>{t("searchresults")}</h4>
       {products.length === 0 ? (
         <p className="mt-2 fs-5 muted">{t("noproducts")}</p>
+      ) : alerts.length > 0 ? (
+        alerts.map((alert) => <div className="error">{alert}</div>)
       ) : (
         <Row className="mt-3">
           {products.map((product, index) => (

@@ -50,5 +50,12 @@
   "policy": "Policy",
   "rights": "All rights reserved",
   "searchresults": "Search Results",
-  "noproducts": "No Products Found"
+  "noproducts": "No Products Found",
+  "added": "Added",
+  "requested": "Requested",
+  "delete": "Delete",
+  "preview": "Preview",
+  "detirmenateshipping": "Shipping is calculated in the checkout process",
+  "checkout": "Checkout",
+  "totalprice": "Total Price"
 }

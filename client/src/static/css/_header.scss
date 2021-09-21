@@ -112,6 +112,17 @@ header {
   .links .icon {
     color: var(--primary);
   }
+  .cart {
+    position: relative;
+    .counter {
+      color: var(--primary);
+      position: absolute;
+      top: -30%;
+      right: 20%;
+      font-size: 0.7rem;
+      font-weight: bolder;
+    }
+  }
 }
 .categories-bar {
   position: relative;

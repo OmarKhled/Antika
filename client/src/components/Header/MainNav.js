@@ -4,12 +4,14 @@ import { FaSearch, FaShoppingCart, FaUser } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useTranslation } from "react-i18next";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { requestSearch } from "../../redux/Search/searchActions";
 
 const MainNav = ({ setOpen, open, history }) => {
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
+
+  const { items } = useSelector((state) => state.cart);
 
   const [search, setSearch] = useState("");
 
@@ -62,7 +64,11 @@ const MainNav = ({ setOpen, open, history }) => {
         </Link>
         <Link to="/cart">
           <div className="d-flex align-items-center gap-auto">
-            <FaShoppingCart className="icon" />
+            <div className="cart">
+              {/* <span className="sign">{items.length}</span> */}
+              <span className="counter">{items.length}</span>
+              <FaShoppingCart className="icon" />
+            </div>
             <span className="browser-view">{t("cart")}</span>
           </div>
         </Link>

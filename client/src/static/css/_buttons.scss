@@ -5,8 +5,9 @@
   text-align: center;
   padding: 0.8rem 1rem;
   border-radius: 7px;
-  transition: 0.25s;
+  transition: all 0.3s ease;
   font-size: 1.1em;
+  text-decoration: none !important;
   &:active {
     transform: scale(0.97);
   }
@@ -29,7 +30,6 @@
   @extend .button;
   background: var(--primary);
   color: #fff !important;
-  text-decoration: none !important;
   &:hover {
     background: var(--brightprimary) !important;
     color: #fff !important;
@@ -49,7 +49,6 @@
   @extend .button;
   background: var(--secondary);
   color: #fff !important;
-  text-decoration: none !important;
   &:hover {
     background: var(--brightsecondary) !important;
     color: #fff !important;
@@ -64,5 +63,15 @@
     &:hover {
       background: var(--secondary) !important;
     }
+  }
+}
+
+.success {
+  background: #198754;
+  color: #fff;
+  &:hover {
+    background: #1d965d !important;
+    color: #fff !important;
+    text-decoration: none !important;
   }
 }

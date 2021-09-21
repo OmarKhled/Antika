@@ -16,10 +16,8 @@ const App = () => {
   useEffect(() => {
     const ele = document.getElementById("loading");
     if (ele) {
-      // fade out
       ele.classList.add("available");
       setTimeout(() => {
-        // remove from DOM
         ele.outerHTML = "";
         document
           .querySelector(

@@ -50,5 +50,12 @@
   "policy": "الأتفاقية",
   "rights": "جميع الحقوق محفوظة",
   "searchresults": "نتائج البحث",
-  "noproducts": "لم يتم العثور على منتجات"
+  "noproducts": "لم يتم العثور على منتجات",
+  "added": "أضيفت",
+  "requested": "تم الطلب",
+  "delete": "حذف",
+  "preview": "معاينة",
+  "detirmenateshipping": "يتم حساب قيمة الشحن خلال الخطوات التالية",
+  "checkout": "متابعة",
+  "totalprice": "السعر الكلى"
 }

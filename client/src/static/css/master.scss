@@ -19,6 +19,7 @@
 @import './buttons';
 @import './hamburger';
 @import './footer';
+@import './cart';
 
 @font-face {
   font-family: "Frugiter";
@@ -42,7 +43,7 @@ body, html {
   font-family: 'Poppins', 'Frugiter', sans-serif !important;
   box-sizing: border-box;
 }
-textarea:focus, input:focus, textarea:active, input:active{
+textarea:focus, input:focus, textarea:active, input:active, select, option{
   outline: none;
 }
 h1, h2, h3, h4, h5, h6, p, label {
@@ -147,6 +148,11 @@ input {
   border-radius: 7px;
   width: 100%;
   padding: 1.3em;
+}
+.link {
+  &:hover {
+    text-decoration: underline;
+  }
 }
 .browser-view {
   display: none;

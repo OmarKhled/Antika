@@ -5,6 +5,7 @@ import _ from "lodash";
 
 import { useDispatch, useSelector } from "react-redux";
 import { getProduct } from "../redux/Products/single/singleProductActions";
+import { cartAdd } from "../redux/Cart/cartActions";
 
 import LoadingComponent from "../components/LoadingComponent";
 import { FcCheckmark } from "react-icons/fc";
@@ -23,11 +24,14 @@ const Product = ({
   const { language } = i18n;
 
   const [mainImg, setMainImg] = useState("");
+  const [added, setAdded] = useState(false);
+  const [previewAdded, setPreviewAdded] = useState(false);
 
   useEffect(() => {
     dispatch(getProduct(id));
     // eslint-disable-next-line
   }, []);
+
   useEffect(() => {
     setMainImg(img.src[0]);
     // eslint-disable-next-line
@@ -43,6 +47,34 @@ const Product = ({
       price: `${product.price} SAR`,
     },
     image: img.src.map((image) => `http://${window.location.hostname}${image}`),
+  };
+
+  const cartAddHandler = () => {
+    if (product.inStock > 0) {
+      dispatch(cartAdd(product));
+    }
+
+    setTimeout(() => {
+      setAdded(true);
+    }, 100);
+
+    setTimeout(() => {
+      setAdded(false);
+    }, 1200);
+  };
+
+  const cartPreviewAddHandler = () => {
+    if (product.inStock > 0) {
+      dispatch(cartAdd(product, true));
+    }
+
+    setTimeout(() => {
+      setPreviewAdded(true);
+    }, 100);
+
+    setTimeout(() => {
+      setPreviewAdded(false);
+    }, 1200);
   };
 
   return (
@@ -178,15 +210,19 @@ const Product = ({
                     <div className="d-flex align-items-center gap-auto mt-2">
                       <button
                         disabled={inStock === 0}
-                        className="button-primary"
+                        onClick={cartAddHandler}
+                        className={`button-primary ${added ? "success" : ""}`}
                       >
-                        {t("addtocart")}
+                        {added ? t("added") : t("addtocart")}
                       </button>
                       <button
                         disabled={inStock === 0}
-                        className="button-secondary"
+                        onClick={cartPreviewAddHandler}
+                        className={`button-secondary ${
+                          previewAdded ? "success" : ""
+                        }`}
                       >
-                        {t("requestpreview")}
+                        {previewAdded ? t("requested") : t("requestpreview")}
                       </button>
                     </div>
                   </div>
