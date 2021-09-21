@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import _ from "lodash";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
+import { useDispatch } from "react-redux";
+import { cartAdd } from "../../redux/Cart/cartActions";
+
 const ProductCard = ({ product, loading, addtocart }) => {
   const { t, i18n } = useTranslation();
+  const dispatch = useDispatch();
+
   const { language } = i18n;
   const { img, price } = product;
   // eslint-disable-next-line
@@ -13,6 +18,20 @@ const ProductCard = ({ product, loading, addtocart }) => {
     return string.replace(/[0-9]/g, function (w) {
       return id[+w];
     });
+  };
+  const [added, setAdded] = useState(false);
+  const cartAddHandler = () => {
+    if (product.inStock > 0) {
+      dispatch(cartAdd(product));
+    }
+
+    setTimeout(() => {
+      setAdded(true);
+    }, 100);
+
+    setTimeout(() => {
+      setAdded(false);
+    }, 1200);
   };
 
   return (
@@ -57,8 +76,12 @@ const ProductCard = ({ product, loading, addtocart }) => {
               <a href="#/">{_.startCase(product.category.name[language])}</a>
             </p>
             {addtocart ? (
-              <button className="button-primary w-100 mt-2">
-                {t("addtocart")}
+              <button
+                disabled={product.inStock === 0}
+                onClick={cartAddHandler}
+                className={`button-primary w-100 ${added ? "success" : ""}`}
+              >
+                {added ? t("added") : t("addtocart")}
               </button>
             ) : (
               <Link
