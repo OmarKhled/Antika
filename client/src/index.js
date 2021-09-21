@@ -10,14 +10,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./static/css/master.scss";
 
 store().then((store) => {
-  // setTimeout(() => {
-  ReactDOM.render(
-    <Provider store={store}>
-      <React.Fragment>
-        <App />
-      </React.Fragment>
-    </Provider>,
-    document.getElementById("root")
-  );
-  // }, 500);
+  setTimeout(() => {
+    ReactDOM.render(
+      <Provider store={store}>
+        <React.Fragment>
+          <App />
+        </React.Fragment>
+      </Provider>,
+      document.getElementById("root")
+    );
+  }, 500);
 });
