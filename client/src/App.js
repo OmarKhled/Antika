@@ -21,7 +21,12 @@ const App = () => {
       setTimeout(() => {
         // remove from DOM
         ele.outerHTML = "";
-      }, 2000);
+        document
+          .querySelector(
+            'link[rel=stylesheet][href~="/static/styles/styles.css"]'
+          )
+          .remove();
+      }, 200);
     }
   }, []);
   return (

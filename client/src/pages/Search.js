@@ -11,7 +11,6 @@ const Search = () => {
   const [products, setProducts] = useState([]);
   const { loading, results, alerts } = useSelector((state) => state.search);
   useEffect(() => {
-    console.log(results);
     if (loading) {
       setProducts([{}, {}, {}, {}]);
     } else {
