@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/Home";
@@ -8,9 +8,22 @@ import Product from "./pages/Product";
 import HamburgerMenu from "./components/HamburgerMenu";
 import Footer from "./components/Footer";
 import Search from "./pages/Search";
+import Cart from "./pages/Cart";
 
 const App = () => {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const ele = document.getElementById("loading");
+    if (ele) {
+      // fade out
+      ele.classList.add("available");
+      setTimeout(() => {
+        // remove from DOM
+        ele.outerHTML = "";
+      }, 2000);
+    }
+  }, []);
   return (
     <Router>
       <HamburgerMenu open={open} setOpen={setOpen} />
@@ -22,6 +35,7 @@ const App = () => {
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/search" component={Search} />
+          <Route exact path="/cart" component={Cart} />
         </Switch>
         <br />
       </div>

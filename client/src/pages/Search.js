@@ -29,7 +29,11 @@ const Search = () => {
         <Row className="mt-3">
           {products.map((product, index) => (
             <Col xs="12" sm="6" md="4" lg="3" key={index}>
-              <ProductCard loading={_.isEmpty(product)} product={product} />
+              <ProductCard
+                loading={_.isEmpty(product)}
+                product={product}
+                addtocart
+              />
             </Col>
           ))}
         </Row>

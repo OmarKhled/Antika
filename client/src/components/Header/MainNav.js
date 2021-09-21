@@ -60,10 +60,12 @@ const MainNav = ({ setOpen, open, history }) => {
             <span className="browser-view">{t("login")}</span>
           </div>
         </Link>
-        <div className="d-flex align-items-center gap-auto">
-          <FaShoppingCart className="icon" />
-          <span className="browser-view">{t("cart")}</span>
-        </div>
+        <Link to="/cart">
+          <div className="d-flex align-items-center gap-auto">
+            <FaShoppingCart className="icon" />
+            <span className="browser-view">{t("cart")}</span>
+          </div>
+        </Link>
       </div>
     </nav>
   );

@@ -3,7 +3,7 @@ import _ from "lodash";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
-const ProductCard = ({ product, loading }) => {
+const ProductCard = ({ product, loading, addtocart }) => {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
   const { img, price } = product;
@@ -26,7 +26,10 @@ const ProductCard = ({ product, loading }) => {
             <p className="head"></p>
             <p className="price"></p>
             <p></p>
-            <button className="loading button-primary w-100 mt-2">
+            <button
+              style={{ cursor: "unset" }}
+              className="loading button w-100 mt-2"
+            >
               {t("seemore")}
             </button>
           </div>
@@ -53,12 +56,18 @@ const ProductCard = ({ product, loading }) => {
               {t("category")}:{" "}
               <a href="#/">{_.startCase(product.category.name[language])}</a>
             </p>
-            <Link
-              to={`/products/${product._id}`}
-              className="button-primary w-100 mt-2"
-            >
-              {t("seemore")}
-            </Link>
+            {addtocart ? (
+              <button className="button-primary w-100 mt-2">
+                {t("addtocart")}
+              </button>
+            ) : (
+              <Link
+                to={`/products/${product._id}`}
+                className="button-primary w-100 mt-2"
+              >
+                {t("seemore")}
+              </Link>
+            )}
           </div>
         </>
       )}
