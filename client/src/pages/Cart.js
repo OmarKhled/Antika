@@ -21,8 +21,8 @@ const Cart = () => {
             <p className="fs-5 muted">No items added to cart</p>
           ) : (
             <>
-              {items.map((item) => (
-                <CartProductCard item={item} />
+              {items.map((item, index) => (
+                <CartProductCard key={index} item={item} />
               ))}
             </>
           )}

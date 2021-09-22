@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import image_ltr from "../../static/images/Antiques-ltr.png";
 import image_rtl from "../../static/images/Antiques-rtl.png";
 import { useTranslation } from "react-i18next";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+
 const Carousel = () => {
-  const { i18n } = useTranslation();
+  const {
+    i18n: { language },
+  } = useTranslation();
   const images = [
     {
       en: image_ltr,
@@ -17,42 +23,22 @@ const Carousel = () => {
       alt: "Antiques Buy",
     },
   ];
-
-  const [active, setActive] = useState(0);
+  const options = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+  };
   return (
-    <>
-      <div className="carousel-container">
-        {images.map((image, index) => (
-          <div
-            key={index}
-            className={`carousel-image-container ${
-              active === index ? "active" : ""
-            }`}
-          >
-            {active === index && (
-              <div className="embed-responsive embed-responsive-135by44">
-                <img
-                  className="embed-responsive-item"
-                  src={i18n.language === "ar" ? image.ar : image.en}
-                  alt={image.alt}
-                />
-              </div>
-            )}
-          </div>
-        ))}
-        <ul className="carousel-indecators">
-          {images.map((image, index) => (
-            <li
-              key={index}
-              className={`carousel-indecator ${
-                active === index ? "selected" : ""
-              }`}
-              onClick={() => setActive(index)}
-            ></li>
-          ))}
-        </ul>
-      </div>
-    </>
+    <Slider className="carousel" {...options}>
+      {images.map((image, index) => (
+        <div key={index}>
+          <img className="slide" src={image[language]} alt={image.alt} />
+        </div>
+      ))}
+    </Slider>
   );
 };
 

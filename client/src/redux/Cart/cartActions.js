@@ -1,4 +1,10 @@
-import { ADD_ITEM, INCREMENT_QTY } from "../types/cartTypes";
+import axios from "axios";
+import {
+  ADD_ITEM,
+  CHANGE_QTY,
+  DELETE_ITEM,
+  INCREMENT_QTY,
+} from "../types/cartTypes";
 
 export const cartAdd =
   (product, isPreview = false) =>
@@ -8,7 +14,6 @@ export const cartAdd =
         (item) =>
           item.product._id === product._id && item.isPreview === isPreview
       );
-      console.log(item);
       if (item) {
         if (item.product.inStock >= item.qty + 1 && item.qty + 1 <= 5) {
           dispatch({
@@ -46,6 +51,53 @@ export const cartAdd =
         let ls = JSON.parse(localStorage.getItem("cart"));
         ls.push({ _id: nProduct._id, qty: 1, isPreview: isPreview });
         localStorage.setItem("cart", JSON.stringify(ls));
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+export const deleteProduct = (_id, isPreview) => (dispatch, getState) => {
+  const { items } = getState().cart;
+  const found = items.find(
+    (item) => item.product._id === _id && item.isPreview === isPreview
+  );
+  if (found) {
+    dispatch({
+      type: DELETE_ITEM,
+      payload: { _id, isPreview },
+    });
+    let ls = JSON.parse(localStorage.getItem("cart"));
+    ls = ls.filter(
+      (unit) => !(unit._id === _id && unit.isPreview === isPreview)
+    );
+    localStorage.setItem("cart", JSON.stringify(ls));
+  }
+};
+
+export const changeQty =
+  (_id, isPreview, qty) => async (dispatch, getState) => {
+    try {
+      const {
+        data: { product },
+      } = await axios.get(`/api/products/${_id}`);
+
+      if (product) {
+        if (qty <= product.inStock && qty <= 5) {
+          dispatch({
+            type: CHANGE_QTY,
+            payload: { _id, isPreview, qty },
+          });
+          let ls = JSON.parse(localStorage.getItem("cart"));
+          ls = ls.map((unit) => {
+            if (unit._id === _id && unit.isPreview === isPreview) {
+              return { ...unit, qty: qty };
+            } else {
+              return unit;
+            }
+          });
+          localStorage.setItem("cart", JSON.stringify(ls));
+        }
       }
     } catch (err) {
       console.log(err);
