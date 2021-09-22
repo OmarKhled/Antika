@@ -57,5 +57,6 @@
   "preview": "Preview",
   "detirmenateshipping": "Shipping is calculated in the checkout process",
   "checkout": "Checkout",
-  "totalprice": "Total Price"
+  "totalprice": "Total Price",
+  "nothingincart": "No items added to cart"
 }

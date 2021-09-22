@@ -57,5 +57,6 @@
   "preview": "معاينة",
   "detirmenateshipping": "يتم حساب قيمة الشحن خلال الخطوات التالية",
   "checkout": "متابعة",
-  "totalprice": "السعر الكلى"
+  "totalprice": "السعر الكلى",
+  "nothingincart": "لا توجد اية منتجات بالعربة"
 }

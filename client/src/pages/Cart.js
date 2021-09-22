@@ -18,7 +18,7 @@ const Cart = () => {
       <div className="cart-container">
         <div className="cart-products">
           {items.length === 0 ? (
-            <p className="fs-5 muted">No items added to cart</p>
+            <p className="fs-5 muted">{t("nothingincart")}</p>
           ) : (
             <>
               {items.map((item, index) => (
@@ -35,7 +35,12 @@ const Cart = () => {
             </p>
             <p className="muted">{t("detirmenateshipping")}</p>
           </div>
-          <button className="button-primary mt-2 w-100">{t("checkout")}</button>
+          <button
+            disabled={items.length === 0}
+            className="button-primary mt-2 w-100"
+          >
+            {t("checkout")}
+          </button>
         </div>
       </div>
     </div>
