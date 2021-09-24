@@ -1,20 +1,14 @@
 import mongoose from "mongoose";
+import mongooseAlgolia from "mongoose-algolia";
+import dotenv from "dotenv";
+
+dotenv.config();
+
 const Schema = mongoose.Schema;
 
 const imageSchema = new Schema({
   src: {
     type: Array,
-    required: true,
-  },
-});
-
-const languageSchema = new Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  description: {
-    type: String,
     required: true,
   },
 });
@@ -37,9 +31,6 @@ const specificationsSchema = new Schema({
     type: Number,
     required: true,
   },
-  brand: {
-    type: simpleLanguagechema,
-  },
   features: [
     {
       type: simpleLanguagechema,
@@ -50,8 +41,8 @@ const specificationsSchema = new Schema({
 const productModel = new Schema(
   {
     img: imageSchema,
-    en: languageSchema,
-    ar: languageSchema,
+    name: simpleLanguagechema,
+    description: simpleLanguagechema,
     category: {
       type: mongoose.Types.ObjectId,
       required: true,
@@ -70,6 +61,10 @@ const productModel = new Schema(
       type: Number,
       required: true,
       default: 0,
+    },
+    brand: {
+      type: simpleLanguagechema,
+      required: false,
     },
     specifications: {
       type: specificationsSchema,
@@ -90,6 +85,19 @@ const productModel = new Schema(
   }
 );
 
+productModel.plugin(mongooseAlgolia, {
+  appId: process.env.ALGOLIA_APP_ID,
+  apiKey: process.env.ALGOLIA_API_KEY,
+  indexName: "antika",
+  populate: {
+    path: "name",
+    select: "category",
+  },
+  debug: true,
+});
+
 const Product = mongoose.model("Products", productModel);
+
+// Product.SyncToAlgolia();
 
 export default Product;

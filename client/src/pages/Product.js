@@ -18,7 +18,16 @@ const Product = ({
 }) => {
   const dispatch = useDispatch();
   const { product, loading, alerts } = useSelector((state) => state.product);
-  const { img, price, inStock, category, specifications } = product;
+  const {
+    img,
+    price,
+    inStock,
+    category,
+    specifications,
+    name,
+    description,
+    brand,
+  } = product;
 
   const { i18n, t } = useTranslation();
   const { language } = i18n;
@@ -40,11 +49,11 @@ const Product = ({
   const structuredData = {
     "@context": "http://schema.org",
     "@type": "Product",
-    name: product["en"].name,
-    description: product["en"].description,
+    name: name["en"],
+    description: description["en"],
     offers: {
       "@type": "Offer",
-      price: `${product.price} SAR`,
+      price: `${price} SAR`,
     },
     image: img.src.map((image) => `http://${window.location.hostname}${image}`),
   };
@@ -96,7 +105,7 @@ const Product = ({
               <div className="product-showcase">
                 <>
                   <Helmet>
-                    <title>{`${product[language].name} - ${
+                    <title>{`${name[language]} - ${
                       language === "ar" ? "أنتيكه" : "Antika"
                     }`}</title>
                     <script type="application/ld+json">
@@ -104,11 +113,11 @@ const Product = ({
                     </script>
                     <meta
                       property="og:description"
-                      content={`${product[language].description}`}
+                      content={`${description[language]}`}
                     />
                     <meta
                       property="og:title"
-                      content={`${product[language].name} - ${
+                      content={`${name[language]} - ${
                         language === "ar" ? "أنتيكه" : "Antika"
                       }`}
                     />
@@ -118,13 +127,13 @@ const Product = ({
                     />
                     <meta
                       name="twitter:title"
-                      content={`${product[language].name} - ${
+                      content={`${name[language]} - ${
                         language === "ar" ? "أنتيكه" : "Antika"
                       }`}
                     />
                     <meta
                       name="twitter:description"
-                      content={`${product[language].description}`}
+                      content={`${description[language]}`}
                     />
                     <meta
                       name="twitter:image"
@@ -135,7 +144,7 @@ const Product = ({
                     <div className="product-showcase-image-preview embed-responsive embed-responsive-1by1">
                       <img
                         src={mainImg}
-                        alt={product[language].name}
+                        alt={name[language]}
                         className="embed-responsive-item"
                       />
                     </div>
@@ -149,17 +158,15 @@ const Product = ({
                           <img
                             className="embed-responsive-item"
                             src={image}
-                            alt={product["en"].name}
+                            alt={name["en"]}
                           />
                         </div>
                       ))}
                     </div>
                   </div>
                   <div className="product-showcase-details space-even-0">
-                    <h1>{product[language].name}</h1>
-                    <p className="description">
-                      {product[language].description}
-                    </p>
+                    <h1>{name[language]}</h1>
+                    <p className="description">{description[language]}</p>
                     <p>
                       {t("category")}:{" "}
                       <a href="#/">{_.startCase(category.name[language])}</a>
@@ -241,13 +248,11 @@ const Product = ({
                       </li>
                     </>
                   )}
-                  {specifications.brand &&
-                    specifications.brand["en"] &&
-                    specifications.brand["ar"] && (
-                      <li>
-                        {t("brand")}: {specifications.brand[language]}
-                      </li>
-                    )}
+                  {brand && brand["en"] && brand["ar"] && (
+                    <li>
+                      {t("brand")}: {brand[language]}
+                    </li>
+                  )}
                   <li>
                     <div>
                       <p>{t("features")}:</p>

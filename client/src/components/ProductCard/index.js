@@ -11,7 +11,7 @@ const ProductCard = ({ product, loading, addtocart }) => {
   const dispatch = useDispatch();
 
   const { language } = i18n;
-  const { img, price } = product;
+  const { img, price, name, category } = product;
   // eslint-disable-next-line
   const toIndiaDigits = (string) => {
     var id = ["٠", "١", "٢", "٣", "٤", "٥", "	٦", "٧", "٨", "٩"];
@@ -59,21 +59,21 @@ const ProductCard = ({ product, loading, addtocart }) => {
             <Link to={`/products/${product._id}`}>
               <img
                 src={img.src[0]}
-                alt={img.alt}
+                alt={name[language]}
                 className="embed-responsive-item"
               />
             </Link>
           </div>
           <div className="product-card-body">
             <Link to={`/products/${product._id}`}>
-              <h6>{product[language].name}</h6>
+              <h6>{name[language]}</h6>
             </Link>
             <p className="price">
               {price} {t("sa")}
             </p>
             <p>
               {t("category")}:{" "}
-              <a href="#/">{_.startCase(product.category.name[language])}</a>
+              <a href="#/">{_.startCase(category.name[language])}</a>
             </p>
             {addtocart ? (
               <button

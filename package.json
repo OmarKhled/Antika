@@ -16,6 +16,7 @@
   "author": "Omar Khaled",
   "license": "ISC",
   "dependencies": {
+    "algoliasearch": "^4.10.5",
     "axios": "^0.21.4",
     "colors": "^1.4.0",
     "dotenv": "^10.0.0",
@@ -24,7 +25,9 @@
     "gridfs-stream": "^1.1.1",
     "jsonwebtoken": "^8.5.1",
     "method-override": "^3.0.0",
+    "mongoolia": "^1.0.3",
     "mongoose": "^6.0.5",
+    "mongoose-algolia": "^1.10.1",
     "multer": "^1.4.3",
     "multer-gridfs-storage": "^5.0.1"
   },

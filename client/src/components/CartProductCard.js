@@ -12,6 +12,10 @@ const CartProductCard = ({ item }) => {
     t,
   } = useTranslation();
 
+  const { product, isPreview, qty } = item;
+
+  const { name, price, img } = product;
+
   const handleProductDelete = () => {
     dispatch(deleteProduct(item.product._id, item.isPreview));
   };
@@ -28,19 +32,18 @@ const CartProductCard = ({ item }) => {
           <div className="embed-responsive embed-responsive-1by1">
             <img
               className="embed-responsive-item product-img"
-              src={item.product.img.src[0]}
-              alt={item.product[language].name}
+              src={img.src[0]}
+              alt={name[language]}
             />
           </div>
         </div>
         <div className="product-details">
           <h4>
-            {item.product[language].name}{" "}
-            {item.isPreview && `- ${t("preview")}`}
+            {name[language]} {isPreview && `- ${t("preview")}`}
           </h4>
           <div className="mb-1">
             <p className="price fs-6">
-              {item.product.price} {t("sa")}{" "}
+              {price} {t("sa")}{" "}
             </p>
           </div>
           <div className="shipping-info">
@@ -49,18 +52,14 @@ const CartProductCard = ({ item }) => {
           </div>
           <div className="d-flex align-items-center justify-content-between mt-2">
             <select
-              value={item.qty}
+              value={qty}
               onChange={(e) => handleQtyChange(parseInt(e.target.value))}
               className="qty-menu"
             >
               {[1, 2, 3, 4, 5].map(
                 (option, index) =>
                   option <= item.product.inStock && (
-                    <option
-                      key={index}
-                      // selected={option === item.qty}
-                      value={option}
-                    >
+                    <option key={index} value={option}>
                       {option}
                     </option>
                   )

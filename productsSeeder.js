@@ -6,9 +6,9 @@ import fs from "fs";
 import axios from "axios";
 import Product from "./models/productModel.js";
 import colors from "colors";
-import products from "./data/products.js"
+import products from "./data/products.js";
 
-import Categories from "./models/categoriesModel.js"
+import Categories from "./models/categoriesModel.js";
 
 dotenv.config();
 connectDB();
@@ -16,7 +16,14 @@ connectDB();
 const exportData = async () => {
   try {
     // Deleting all products
-    await Product.deleteMany();
+    const dBproducts = await Product.find({});
+
+    for (let index = 0; index < dBproducts.length; index++) {
+      const product = dBproducts[index];
+
+      await product.delete();
+    }
+
     for (let index = 0; index < products.length; index++) {
       const product = products[index];
       for (let index = 0; index < product.img.src.length; index++) {
@@ -35,16 +42,18 @@ const exportData = async () => {
       console.log(product.img.src);
 
       const categories = await Categories.find({});
-      const category = categories.find(category => category.name.en === product.category.toLowerCase())
+      const category = categories.find(
+        (category) => category.name.en === product.category.toLowerCase()
+      );
 
-      product.category = category._id
-      
+      product.category = category._id;
+
       const dbProduct = new Product(product);
 
       await dbProduct.save();
     }
     console.log("Data Erxported!".green.inverse);
-    process.exit();
+    // process.exit();
   } catch (err) {
     console.log(`Error: ${err}, ${err.message}`.red.inverse.bold);
     process.exit(1);
@@ -54,7 +63,13 @@ const exportData = async () => {
 const destroyData = async () => {
   try {
     // Deleting all products
-    await Product.deleteMany();
+    const dBproducts = await Product.find({});
+
+    for (let index = 0; index < dBproducts.length; index++) {
+      const product = dBproducts[index];
+
+      await product.delete();
+    }
     // Init gfs
     let gfs;
     // Init DB Connection
@@ -74,7 +89,7 @@ const destroyData = async () => {
           });
         }
       });
-      // console.log("Data Destroyed!".red.inverse);
+      console.log("Data Destroyed!".red.inverse);
       // process.exit();
     });
   } catch (err) {

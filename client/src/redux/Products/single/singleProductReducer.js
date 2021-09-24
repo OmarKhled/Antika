@@ -11,18 +11,15 @@ const productReducers = (
       img: {
         src: [],
       },
-      en: {},
-      ar: {},
+      name: {},
+      description: {},
       category: {
-        name: {}
+        name: {},
       },
+      brand: {},
       specifications: {
-        brand: {},
-        features: [
-          {},
-          {},
-        ]
-      }
+        features: [{}, {}],
+      },
     },
     alerts: [],
   },
