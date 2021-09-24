@@ -2,6 +2,7 @@ import {
   REQUEST_SEARCH,
   REQUEST_SEARCH_SUCCESS,
   REQUEST_SEARCH_FAIL,
+  CLEAR_ALERTS,
 } from "../types/searchTypes";
 
 const searchReducers = (
@@ -35,6 +36,12 @@ const searchReducers = (
         loading: false,
         alerts: [...state.alerts, payload],
         results: [],
+      };
+    }
+    case CLEAR_ALERTS: {
+      return {
+        ...state,
+        alerts: [],
       };
     }
     default: {

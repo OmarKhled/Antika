@@ -73,13 +73,15 @@ const ProductCard = ({ product, loading, addtocart }) => {
             </p>
             <p>
               {t("category")}:{" "}
-              <a href="#/">{_.startCase(category.name[language])}</a>
+              <a href="#/">{_.startCase(category[language])}</a>
             </p>
             {addtocart ? (
               <button
                 disabled={product.inStock === 0}
                 onClick={cartAddHandler}
-                className={`button-primary w-100 ${added ? "success" : ""}`}
+                className={`button-primary w-100 mt-2 ${
+                  added ? "success" : ""
+                }`}
               >
                 {added ? t("added") : t("addtocart")}
               </button>

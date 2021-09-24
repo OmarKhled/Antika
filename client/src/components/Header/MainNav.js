@@ -3,13 +3,12 @@ import { Link, withRouter } from "react-router-dom";
 import { FaSearch, FaShoppingCart, FaUser } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useTranslation } from "react-i18next";
+import qs from "qs";
 
-import { useDispatch, useSelector } from "react-redux";
-import { requestSearch } from "../../redux/Search/searchActions";
+import { useSelector } from "react-redux";
 
 const MainNav = ({ setOpen, open, history }) => {
   const { t, i18n } = useTranslation();
-  const dispatch = useDispatch();
 
   const { items } = useSelector((state) => state.cart);
 
@@ -20,10 +19,20 @@ const MainNav = ({ setOpen, open, history }) => {
     // eslint-disable-next-line
   }, [i18n.language]);
 
+  useEffect(() => {
+    const { q } = qs.parse(window.location.search.slice(1));
+    if (q) {
+      setSearch(q);
+    } else {
+      setSearch("");
+    }
+    // eslint-disable-next-line
+  }, [window.location.search.slice(1)]);
+
   const handleSearch = () => {
     if (!(!search || search === "" || search.replace(/\s/g, "").length === 0)) {
-      dispatch(requestSearch(search, i18n.language));
-      history.push("/search");
+      // dispatch(requestSearch(search, i18n.language));
+      history.push(`/search?q=${search}`);
     }
   };
 

@@ -4,6 +4,7 @@ import {
   REQUEST_SEARCH,
   REQUEST_SEARCH_SUCCESS,
   REQUEST_SEARCH_FAIL,
+  CLEAR_ALERTS,
 } from "../types/searchTypes";
 
 export const requestSearch = (query, language) => async (dispatch) => {
@@ -16,17 +17,22 @@ export const requestSearch = (query, language) => async (dispatch) => {
     } = await axios.get("/api/products");
 
     if (!products) {
-      return dispatch({
+      dispatch({
         type: REQUEST_SEARCH_FAIL,
         payload: "No Products Found...",
       });
+      setTimeout(() => {
+        dispatch({
+          type: CLEAR_ALERTS,
+        });
+      }, 1400);
     }
 
     products = products.filter((product, index) => {
       const fields = [
-        _.get(product, `${language}.name`),
-        _.get(product, `category.name.${language}`),
-        _.get(product, `$specifications.brand.${language}`),
+        _.get(product, `name.${language}`),
+        _.get(product, `category.${language}`),
+        _.get(product, `brand.${language}`),
       ];
 
       let valid = false;
@@ -56,6 +62,11 @@ export const requestSearch = (query, language) => async (dispatch) => {
           type: REQUEST_SEARCH_FAIL,
           payload: "No Products Found...",
         });
+        setTimeout(() => {
+          dispatch({
+            type: CLEAR_ALERTS,
+          });
+        }, 1400);
       }
     }, 2000);
   } catch (err) {}

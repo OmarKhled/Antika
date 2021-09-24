@@ -43,7 +43,7 @@ const exportData = async () => {
 
       const categories = await Categories.find({});
       const category = categories.find(
-        (category) => category.name.en === product.category.toLowerCase()
+        (category) => category.en === product.category.toLowerCase()
       );
 
       product.category = category._id;

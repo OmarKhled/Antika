@@ -13,9 +13,7 @@ const productReducers = (
       },
       name: {},
       description: {},
-      category: {
-        name: {},
-      },
+      category: {},
       brand: {},
       specifications: {
         features: [{}, {}],

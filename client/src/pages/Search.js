@@ -2,14 +2,33 @@ import _ from "lodash";
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Row, Col } from "react-bootstrap";
+import qs from "qs";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { requestSearch } from "../redux/Search/searchActions";
 import ProductCard from "../components/ProductCard";
 
 const Search = () => {
-  const { t } = useTranslation();
+  const {
+    t,
+    i18n: { language },
+  } = useTranslation();
   const [products, setProducts] = useState([]);
-  const { loading, results, alerts } = useSelector((state) => state.search);
+  const { loading, results } = useSelector((state) => state.search);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const urlParams = qs.parse(window.location.search.slice(1));
+    dispatch(requestSearch(urlParams.q, language));
+    // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    const urlParams = qs.parse(window.location.search.slice(1));
+    dispatch(requestSearch(urlParams.q, language));
+    // eslint-disable-next-line
+  }, [window.location.search.slice(1)]);
+
   useEffect(() => {
     if (loading) {
       setProducts([{}, {}, {}, {}]);
@@ -24,8 +43,6 @@ const Search = () => {
       <h4>{t("searchresults")}</h4>
       {products.length === 0 ? (
         <p className="mt-2 fs-5 muted">{t("noproducts")}</p>
-      ) : alerts.length > 0 ? (
-        alerts.map((alert) => <div className="error">{alert}</div>)
       ) : (
         <Row className="mt-3">
           {products.map((product, index) => (

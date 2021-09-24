@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import mongooseAlgolia from "mongoose-algolia";
+// import mongooseAlgolia from "mongoose-algolia";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -85,16 +85,15 @@ const productModel = new Schema(
   }
 );
 
-productModel.plugin(mongooseAlgolia, {
-  appId: process.env.ALGOLIA_APP_ID,
-  apiKey: process.env.ALGOLIA_API_KEY,
-  indexName: "antika",
-  populate: {
-    path: "name",
-    select: "category",
-  },
-  debug: true,
-});
+// productModel.plugin(mongooseAlgolia, {
+//   appId: process.env.ALGOLIA_APP_ID,
+//   apiKey: process.env.ALGOLIA_API_KEY,
+//   indexName: "antika",
+//   populate: {
+//     path: "category",
+//   },
+//   debug: true,
+// });
 
 const Product = mongoose.model("Products", productModel);
 

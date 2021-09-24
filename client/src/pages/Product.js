@@ -169,7 +169,7 @@ const Product = ({
                     <p className="description">{description[language]}</p>
                     <p>
                       {t("category")}:{" "}
-                      <a href="#/">{_.startCase(category.name[language])}</a>
+                      <a href="#/">{_.startCase(category[language])}</a>
                     </p>
                     <div>
                       <p>{t("features")}:</p>

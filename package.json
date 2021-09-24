@@ -25,7 +25,6 @@
     "gridfs-stream": "^1.1.1",
     "jsonwebtoken": "^8.5.1",
     "method-override": "^3.0.0",
-    "mongoolia": "^1.0.3",
     "mongoose": "^6.0.5",
     "mongoose-algolia": "^1.10.1",
     "multer": "^1.4.3",
